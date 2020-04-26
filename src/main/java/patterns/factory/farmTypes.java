@@ -1,6 +1,6 @@
 package main.java.patterns.factory;
 
-public class Animals extends Factory {
+public class farmTypes extends Factory {
 
     int Cycle = 0;
     private int readyCycle = 3;
@@ -38,6 +38,14 @@ public class Animals extends Factory {
         if(this.produceCount > readyCycle) {
             this.isProduce = true;
             System.out.println(this.name + " is ready to support the farm production process.");
+        }
+        
+        this.produceCount++;
+        System.out.println(this.nameCrop +" is growing, and it might be ready for harvest soon.");
+        
+        if(this.produceCount > readyCycle) {
+            this.isProduce = true;
+            System.out.println(this.nameCrop + "is ready for harvesting, let's make some MONEY!!");
         }
     }
 }

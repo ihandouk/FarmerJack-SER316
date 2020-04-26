@@ -1,6 +1,8 @@
 package main.java.patterns.factory;
 
 import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.ThreadLocalRandom;
 
 public abstract class Farm {
     
@@ -18,7 +20,7 @@ public abstract class Farm {
            return new Farm(this);
        }
        
-       public buildFarm prod(Factory factproduct) {
+       public buildFarm factproduct(Factory factproduct) {
            this.factproduct = factproduct;
            return this;
        }

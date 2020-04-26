@@ -3,10 +3,11 @@ package main.java.patterns.factory;
 public abstract class Factory {
 
     protected String name;
+    protected String nameCrop;
     protected String Sales;
     protected double salesPrice;
     protected double price;
-    private int readyCycle = 3;
+    
     boolean isProduce = false;
     int produceCount = 0;
     
@@ -39,16 +40,4 @@ public abstract class Factory {
         this.produceCount = 0;
     }
     
-    public void Cycle() {
-        
-        this.produceCount++;
-        System.out.println(this.name +" is growing, and it might be ready for harvest soon.");
-        
-        if(this.produceCount > readyCycle) {
-            this.isProduce = true;
-            System.out.println(this.name + "is ready for harvesting, let's make some MONEY!!");
-        }
-        
-        
-    }
 }
