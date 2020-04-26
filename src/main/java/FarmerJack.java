@@ -1,5 +1,7 @@
 package main.java;
 
+import main.java.patterns.factory.*;
+import java.util.Scanner;
 
 public class FarmerJack {
 
@@ -8,8 +10,22 @@ public class FarmerJack {
      * 
      */
     public static void main(String[] args) {
-        System.out.println("Hello World!");
-
+        
+        Farm animalFarm = new AnimalFarm();
+        Farm cropFarm = new CropFarm();
+        Farm hybridFarm = new HybridFarm();
+        
+        farmProduct(animalFarm);
+        farmProduct(cropFarm);
+        farmProduct(hybridFarm);
+    }
+    
+    public static void farmProduct(Farm aFarm) {
+        
+        aFarm.Animals();
+        aFarm.Crops();
+        aFarm.Farmers();
+        aFarm.Predators();
     }
 
 }

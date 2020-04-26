@@ -1,14 +1,14 @@
 package main.java.patterns.factory;
 
+import java.util.Random
 
 public class AnimalFarm extends Farm {
 
 	public AnimalFarm() {
 	    
-	    setName("Animal Farm");
-	    setFarmers(6.0);
-	    setAnimals(50.0);
-	    setPredators(3.0);
+	    int farmerCount = 0;
+	    int animalsCount = 0;
+	    
 	}
 
 }

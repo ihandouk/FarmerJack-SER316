@@ -1,61 +1,39 @@
 package main.java.patterns.factory;
 
-
+import java.util.ArrayList;
 
 public abstract class Farm {
-
-	private String name;
-	private double Farmer;
-	private double Animal;
-    private double Crop;
-    private double Predator;
-	
-    public String getName() {
-        return name;
-    }
-    public void setName(String newName) {
-        name = newName;
-    }
-    public double getFarmers() {
-        return Farmer;
-    }
-    public void setFarmers(double newFarmer) {
-        Farmer = newFarmer;
-    }
-    public double getAnimals() {
-        return Animal;
-    }
-    public void setAnimals(double newAnimal) {
-        Animal = newAnimal;
-    }
-    public double getCrops() {
-        return Crop;
-    }
-    public void setCrops(double newCrop) {
-        Crop = newCrop;
-    }
-    public double getPredators() {
-        return Predator;
-    }
-    public void setPredators(double newPredator) {
-        Predator = newPredator;
-    }
-
-	public void Farmers() {
-	    
-	    System.out.println(getName() + "First farm has: " + getFarmers());
-	}
-
-	public void Animals() {
-	    System.out.println(getName() + "First farm has: " + getAnimals());
-	}
-	public void Crops() {
-        
-        System.out.println(getName() + "First farm has: " + getCrops());
-    }
-
-    public void Predators() {
-        System.out.println(getName() + "First farm has: " + getPredators());
-    }
+    
+   public static class buildFarm{
+       
+       private Factory factproduct;
+       private int factproductSize = 3;
+       private int farmerCount = 6;
+       
+       public buildFarm() {
+           
+       }
+       
+       public Farm create() {
+           return new Farm(this);
+       }
+       
+       public buildFarm prod(Factory factproduct) {
+           this.factproduct = factproduct;
+           return this;
+       }
+       
+       public buildFarm prodSize(int factproductSize) {
+           this.factproductSize = factproductSize;
+           return this;
+       }
+       public buildFarm farmerCount (int farmerCount) {
+           this.farmerCount = farmerCount;
+           return this;
+       }
+       
+   }
+   
+   
 
 }
