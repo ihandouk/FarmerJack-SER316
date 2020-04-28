@@ -1,10 +1,10 @@
 package main.java.patterns.factory;
 
-public class Cows extends Animals {
+public class Cows extends AnimalFarm {
     
     public Cows() {
         name = "Cows";
-        Sales = "Milk";
+        salesName = "Milk";
         price = 5.00;
         salesPrice = 3.00;
     }

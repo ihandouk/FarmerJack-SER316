@@ -4,11 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 
-public class CropFarm extends Factory {
+public class FishFarm extends Factory {
     
-    public CropFarm() {
-        setName("Crop Farm");
+    public FishFarm() {
+        setName("Fish Farm");
     }
+    
     public static class buildFarm{
         private Factory product;
         private int productQuantity = 3;
@@ -18,25 +19,27 @@ public class CropFarm extends Factory {
         public buildFarm() {
         }
         
-        public CropFarm create() {
-            return new CropFarm(this);
+        public FishFarm create() {
+            return new FishFarm(this);
         }
            
-        public buildFarm product(Factory prod) {
-            this.product = prod;
+        public buildFarm product(Factory product) {
+            this.product = product;
             return this;
         }
            
         public buildFarm productQuantity(int quantity) {
             this.productQuantity = quantity;
-               return this;
+            return this;
         }
         public buildFarm farmerCount (int farmerCount) {
             this.farmerCount = farmerCount;
+            farmerCount++;
             return this;
            }
         public buildFarm animalCount (int animalCount) {
             this.animalCount = animalCount;
+            animalCount++;
             return this;
         }   
     }
@@ -44,31 +47,32 @@ public class CropFarm extends Factory {
     private Factory product;
     private int productQuantity;
     private int farmerCount = 3;
-    private int cropCount = 2;
+    private int fishPools = 2;
+    
     public List<Factory> farmList = new ArrayList<Factory>();
     
-    public CropFarm (buildFarm build) {
+    public FishFarm (buildFarm build) {
         
-        if(build.product == null) {
-            int num = ThreadLocalRandom.current().nextInt(cropCount, farmerCount);
+        if(build.product == null) {        
+            int num = ThreadLocalRandom.current().nextInt(farmerCount, fishPools);
         
             switch(num) {
             
                 case 0:
-                    this.product = new Apples();
+                    this.product = new Salmon();
                     break;
                 case 1:
-                    this.product = new Coffee();
+                    this.product = new SwordFish();
                     break;
                 case 2:
-                    this.product = new Oranges();
+                    this.product = new Lobster();
                     break;
             }
         }else {
             this.product = build.product;
         }
         farmList.add(this.product);
-           
+        
         this.productQuantity = build.productQuantity;
         this.farmerCount = build.farmerCount;
         
@@ -76,5 +80,4 @@ public class CropFarm extends Factory {
         System.out.println("Product Qty: " + getProdQuantity());
         System.out.println("Number of Farmers: " + getfarmerCount() + "\n");
     }
-
 }
