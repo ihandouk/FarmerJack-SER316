@@ -11,14 +11,16 @@ public abstract class Factory {
     public int produceCount = 0;
     public int readyCycle = 3;
     
+    
+    
     public String getName() {
         return name;
+        
     }
     public String getPred() {
         pred = "Predator";
         return pred;
     }
-    
     
     public String getSalesName() {
         return salesName;
@@ -45,31 +47,32 @@ public abstract class Factory {
         this.produceCount = 0;
     }
     
+    
     int Cycle = 0;
     private int animalStartCycle = 3;
     private int animalEndCycle = 14;
     private String pred;
     
+    /*
+     * verifying animals, fish, and crops eligibility to produce.
+     * @return
+     */
     public void Cycle() {
         
+        // incrementing cycles
         this.Cycle++;
-        
-        if(this.Cycle == Cycle + 2) {
-            
-            System.out.println("The farms produce vaults were attached by: "+this.pred);
-        }
-        
+        // verifying animal eligibility
         if(this.Cycle < animalStartCycle) {
             System.out.println(this.name + " is not old enough to produce");
             return;
         }
         
-        
+        // verifying animal eligibility
         if(this.Cycle >= animalEndCycle) {
             System.out.println(this.name + " has died of old age.");
             return;
         }
-        
+        // Checking if it is able to support the production process.
         this.produceCount++;
         System.out.println(this.name + "cycle.");
         
