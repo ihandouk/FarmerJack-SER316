@@ -1,4 +1,4 @@
-package main.java.patterns.Decorator;
+package main.java.patterns.decorator;
 
 public class HorseSound extends AnimalSounds {
     
