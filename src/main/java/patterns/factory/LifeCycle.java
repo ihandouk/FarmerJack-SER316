@@ -2,90 +2,89 @@ package main.java.patterns.factory;
 
 import java.util.Iterator;
 
-import main.java.patterns.factory.Animals.AnimalFarm;
-import main.java.patterns.factory.Crops.CropFarm;
-import main.java.patterns.factory.Fish.FishFarm;
+import main.java.patterns.factory.animals.AnimalFarm;
+import main.java.patterns.factory.crops.CropFarm;
+import main.java.patterns.factory.fish.FishFarm;
 
 public class LifeCycle {
 
+    /**
+     * Iterator Design Pattern.
+     * @param
+     * return
+     */
     public LifeCycle() {
         
-        Iterator<AnimalFarm> animalIterator = Currency.animalList.iterator();
+        Iterator<AnimalFarm> animalIterator = Currency.getAnimalFarmList().iterator();
         
         while (animalIterator.hasNext()) {
             
             AnimalFarm animal = (AnimalFarm) animalIterator.next();
             
-            Iterator<Factory> factoryIterator = animal.farmList.iterator();
+            Iterator<Factory> factoryIterator = animal.animalList.iterator();
             
-            while(factoryIterator.hasNext()) {
+            while (factoryIterator.hasNext()) {
                 
                 Factory product = factoryIterator.next();
                 
-                if(product.isProduce) {
+                if (product.isProduce) {
+                    Currency.addCurrency(product.price);
+
+                    System.out.println("Item sold: " + product.salesName 
+                            + " for the amount of $" + product.price);
+                    System.out.println("The farm's vault has a total of $" 
+                            + Currency.getCurrency() + ".\n");
                     
-                    Currency.currency += product.price;
-                    System.out.println("Item sold: " + product.salesName +
-                            " for the amount of $"+product.price);
-                    System.out.println("The farm's vault has a total of $"+Currency.currency+".\n");
-                    if(Currency.currency >= 1200){
-                        System.out.println("Farm is ready for an upgrade.");
-                    
-                    }
-                }else {
-                    product.Cycle();
+                } else {
+                    product.cycle();
                 }
             }
         }
-        Iterator<FishFarm> fishIterator = Currency.fishList.iterator();
+        Iterator<FishFarm> fishIterator = Currency.getFishFarmList().iterator();
         while (fishIterator.hasNext()) {
             
             FishFarm fish = (FishFarm) fishIterator.next();
             
             Iterator<Factory> factoryIterator = fish.fishList.iterator();
             
-            while(factoryIterator.hasNext()) {
+            while (factoryIterator.hasNext()) {
                 
                 Factory product = factoryIterator.next();
                 
-                if(product.isProduce) {
+                if (product.isProduce) {
+                    Currency.addCurrency(product.price);
+
+                    System.out.println("Item sold: " + product.salesName 
+                            + " for the amount of $" + product.price);
+                    System.out.println("The farm's vault has a total of $" 
+                            + Currency.getCurrency() + ".\n");
                     
-                    Currency.currency += product.price;
-                    System.out.println("Item sold: " + product.salesName +
-                            " for the amount of $"+product.price);
-                    System.out.println("The farm's vault has a total of $"+Currency.currency+".\n");
-                    if(Currency.currency >= 1200){
-                        System.out.println("Farm is ready for an upgrade.");
-                    
-                    }
-                }else {
-                    product.Cycle();
+                } else {
+                    product.cycle();
                 }
             }
         }
-        Iterator<CropFarm> cropIterator = Currency.cropList.iterator();
+        Iterator<CropFarm> cropIterator = Currency.getCropFarmList().iterator();
         while (cropIterator.hasNext()) {
             
             CropFarm crop = (CropFarm) cropIterator.next();
             
             Iterator<Factory> factoryIterator = crop.cropList.iterator();
             
-            while(factoryIterator.hasNext()) {
+            while (factoryIterator.hasNext()) {
                 
                 Factory product = factoryIterator.next();
                 
-                if(product.isProduce) {
+                if (product.isProduce) {
+                    Currency.addCurrency(product.price);
+
+                    System.out.println("Item sold: " + product.salesName 
+                            + " for the amount of $" + product.price);
+                    System.out.println("The farm's vault has a total of $" 
+                            + Currency.getCurrency() + ".\n");
                     
-                    Currency.currency += product.price;
-                    System.out.println("Item sold: " + product.salesName +
-                            " for the amount of $"+product.price);
-                    System.out.println("The farm's vault has a total of $"+Currency.currency+".\n");
-                    if(Currency.currency >= 1200){
-                        System.out.println("Farm is ready for an upgrade.");
-                    
-                    }
-                }else {
-                    product.Cycle();
+                } else {
+                    product.cycle();
                 }
             }
         }

@@ -1,7 +1,11 @@
-package main.java.patterns.factory.Fish;
+package main.java.patterns.factory.fish;
 
-public class SwordFish extends FishFarm{
+public class SwordFish extends FishFarm {
     
+    /**
+     * Fish products and sale prices.
+     * @return
+     */
     public SwordFish() {
         name = "SwordFish";
         salesName = "SwordFish steak";

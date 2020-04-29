@@ -17,6 +17,7 @@ public abstract class Factory {
         return name;
         
     }
+    
     public String getPred() {
         pred = "Predator";
         return pred;
@@ -42,33 +43,33 @@ public abstract class Factory {
         return produceCount;
     }
     
-    public void Harvested() {
+    public void harvested() {
         this.isProduce = false;
         this.produceCount = 0;
     }
     
     
-    int Cycle = 0;
+    int cycle = 0;
     private int animalStartCycle = 3;
     private int animalEndCycle = 14;
     private String pred;
     
-    /*
+    /**
      * verifying animals, fish, and crops eligibility to produce.
-     * @return
+     * return
      */
-    public void Cycle() {
+    public void cycle() {
         
         // incrementing cycles
-        this.Cycle++;
+        this.cycle++;
         // verifying animal eligibility
-        if(this.Cycle < animalStartCycle) {
+        if (this.cycle < animalStartCycle) {
             System.out.println(this.name + " is not old enough to produce");
             return;
         }
         
         // verifying animal eligibility
-        if(this.Cycle >= animalEndCycle) {
+        if (this.cycle >= animalEndCycle) {
             System.out.println(this.name + " has died of old age.");
             return;
         }
@@ -76,15 +77,15 @@ public abstract class Factory {
         this.produceCount++;
         System.out.println(this.name + "cycle.");
         
-        if(this.produceCount > readyCycle) {
+        if (this.produceCount > readyCycle) {
             this.isProduce = true;
             System.out.println(this.name + " is ready to support the farm production process.");
         }
         
         this.produceCount++;
-        System.out.println(this.name +" is growing, and it might be ready for harvest soon.");
+        System.out.println(this.name + " is growing, and it might be ready for harvest soon.");
         
-        if(this.produceCount > readyCycle) {
+        if (this.produceCount > readyCycle) {
             this.isProduce = true;
             System.out.println(this.name + "is ready for harvesting, let's make some MONEY!!");
         }

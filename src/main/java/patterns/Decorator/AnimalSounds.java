@@ -6,16 +6,24 @@ public class AnimalSounds implements Affinities {
     
     protected int soundStrength;
     protected String description;
-    protected ArrayList<AnimalSounds>animalSounds;
+    protected ArrayList<AnimalSounds> animalSounds;
     
-    public void addSound(Affinities sound) {
+    /*
+     * adds animal sound to characters in the farm.
+     * Adding animal Affinities.
+     * @return
+     */
+    void addSound(Affinities sound) {
         animalSounds = new ArrayList<AnimalSounds>();
         this.animalSounds.add(this);
         
     }
     
-    
-    public AnimalSounds(int soundStrength, String description) {
+    /*
+     * It allows for a sound description with the integer.
+     * @return
+     */
+    AnimalSounds(int soundStrength, String description) {
         this.description = description;
         this.soundStrength = soundStrength;
         

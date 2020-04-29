@@ -1,4 +1,4 @@
-package main.java.patterns.factory.Fish;
+package main.java.patterns.factory.fish;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,36 +12,44 @@ public class FishFarm extends Factory {
     public FishFarm() {
     }
     
-    public static class buildFarm{
+    public static class Buildfarm {
         private Factory product;
         private int productQuantity = 3;
         private int farmerCount = 6;
         private int fishCount = 50;
            
-        public buildFarm() {
+        public Buildfarm() {
         }
         
         public FishFarm create() {
             return new FishFarm(this);
         }
            
-        public buildFarm product(Factory product) {
+        public Buildfarm product(Factory product) {
             this.product = product;
             return this;
         }
            
-        public buildFarm productQuantity(int quantity) {
+        public Buildfarm productQuantity(int quantity) {
             this.productQuantity = quantity;
             return this;
         }
-        public buildFarm farmerCount (int farmerCount) {
+        
+        /**
+         * Calling farmer count products at random.
+         * @return
+         */
+        public Buildfarm farmerCount(int farmerCount) {
             this.farmerCount = farmerCount;
-            farmerCount++;
             return this;
-           }
-        public buildFarm fishCount (int fishCount) {
+        }
+        
+        /**
+         * Calling fish count products at random.
+         * @return
+         */
+        public Buildfarm fishCount(int fishCount) {
             this.fishCount = fishCount;
-            fishCount++;
             return this;
         }   
     }
@@ -56,12 +64,16 @@ public class FishFarm extends Factory {
     public List<Factory> fishList = new ArrayList<Factory>();
     private static Random rand = new Random();
     
-    public FishFarm (buildFarm build) {
+    /**
+     * Calling fish farm products at random.
+     * @return
+     */
+    public FishFarm(Buildfarm build) {
         
-        if(build.product == null) {        
+        if (build.product == null) {        
             int num = ThreadLocalRandom.current().nextInt(fishMin, fishMax);
         
-            switch(num) {
+            switch (num) {
             
                 case 0:
                     this.product = new Salmon();
@@ -72,8 +84,11 @@ public class FishFarm extends Factory {
                 case 2:
                     this.product = new Lobster();
                     break;
+                default:
+                    this.product = new Lobster();
+                    break;
             }
-        }else {
+        } else {
             this.product = build.product;
         }
         fishList.add(this.product);
@@ -95,9 +110,11 @@ public class FishFarm extends Factory {
     public int getProdQuantity() {
         return productQuantity;
     }
+    
     public int getfarmerCount() {
         return farmerCount;
     }
+    
     public int getFishCount() {
         return fishCount;
     }

@@ -1,7 +1,11 @@
-package main.java.patterns.factory.Animals;
+package main.java.patterns.factory.animals;
 
 public class Sheep extends AnimalFarm {
     
+    /**
+     * Animal products and sale prices.
+     * @return
+     */
     public Sheep() {
         name = "Sheep";
         salesName = "Wool";
