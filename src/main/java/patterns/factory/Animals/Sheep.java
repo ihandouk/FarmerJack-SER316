@@ -5,8 +5,8 @@ public class Sheep extends AnimalFarm {
     public Sheep() {
         name = "Sheep";
         salesName = "Wool";
-        price = 75.00;
-        salesPrice = 50.00;
+        price = 50.00;
+        salesPrice = 40.00;
     }
 
 }
