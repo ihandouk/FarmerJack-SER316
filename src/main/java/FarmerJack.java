@@ -1,32 +1,30 @@
 package main.java;
 
-import main.java.patterns.factory.*;
+import main.java.patterns.mediator.TimeCycle;
+
 import main.java.patterns.factory.Animals.AnimalFarm;
 import main.java.patterns.factory.Crops.CropFarm;
+import main.java.patterns.factory.Currency;
 import main.java.patterns.factory.Fish.FishFarm;
-import main.java.patterns.Mediator.TimeCycle;
-import java.util.Timer;
-import java.util.TimerTask;
 
 public class FarmerJack {
 
     /*
+     * Method: Main method to run program simulations.
+     * Inputs: args[] : String.
      * it calls the main class for the project.
-     * 
+     * @param
+     * @return
      */
     public static void main(String[] args) {
         
-        Timer t;
-        
         System.out.println("WELCOME TO FARMER JACK'S FARMS \n");
         
-        System.out.println("Each farm starts with: "+ Currency.currency+ " Dollars\n");
+        System.out.println("Each farm starts with: " + Currency.currency + " Dollars\n");
         System.out.println("Creating a new farm: ");
         AnimalFarm.buildFarm build = new AnimalFarm.buildFarm();
         FishFarm.buildFarm build1 = new FishFarm.buildFarm();
-        CropFarm.buildFarm build2 = new CropFarm.buildFarm();
-        t = new Timer();
-        
+        CropFarm.buildFarm build2=new CropFarm.buildFarm();
         AnimalFarm farm = build.create();
         Currency.animalList.add(farm);
         AnimalFarm farm1 = build.create();
@@ -45,7 +43,7 @@ public class FarmerJack {
         Currency.cropList.add(farm7);
         CropFarm farm8 = build2.create();
         Currency.cropList.add(farm8);
-        new TimeCycle(3);
+        new TimeCycle(3);        
         
     }
 
