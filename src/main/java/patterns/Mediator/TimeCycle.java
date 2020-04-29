@@ -1,8 +1,9 @@
-package main.java.patterns.Mediator;
+package main.java.patterns.mediator;
 
 import java.util.Timer;
 import java.util.TimerTask;
 
+import main.java.patterns.factory.Currency;
 import main.java.patterns.factory.LifeCycle;
 
 public class TimeCycle {
@@ -11,21 +12,30 @@ public class TimeCycle {
     private static boolean isDay = false;
     private static int sunRise = 0;
     
+    boolean checkForUpgrade() {
+        return Currency.getCurrency()>=Currency.getreadyUpgrade();
+    }
     
+   
     public TimeCycle(int seconds) {
         
-        timer = new Timer();
+        if(!checkForUpgrade()) {
+            timer = new Timer();
+            if(isDay) {
+            timer.schedule(new Midnight(), seconds * 00);
+            }else {
+            timer.schedule(new FiveAM(), seconds * 00);
+            }
         
-        if(isDay) {
-            timer.schedule(new Midnight(), seconds * 300);
         }else {
-            timer.schedule(new FiveAM(), seconds * 300);
+            System.out.println("Farm has reached capacity");
+            System.exit(0);
         }
-        
     }
     
     
     class FiveAM extends TimerTask{
+     
         
         public void run() {
             
@@ -46,11 +56,7 @@ public class TimeCycle {
             System.out.println("The sun is settin Y'LL, tomorrow we will be here again bright and early! \n");
             isDay = false;
             new TimeCycle(3);
-            if(sunRise == 10) {
-                timer.cancel();
-                System.out.println("End of simulation.");
-            }
-            
+
         }
     }
 }
