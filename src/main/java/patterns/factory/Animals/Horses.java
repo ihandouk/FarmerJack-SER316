@@ -5,7 +5,7 @@ public class Horses extends AnimalFarm{
     public Horses() {
         name = "Horses";
         salesName = "Race horse";
-        price = 200.00;
-        salesPrice = 150.00;
+        price = 90.00;
+        salesPrice = 70.00;
     }
 }
