@@ -1,8 +1,9 @@
-package main.java.patterns.factory.Mediator;
+package main.java.patterns.Mediator;
 
 import java.util.Timer;
 import java.util.TimerTask;
 
+import main.java.patterns.factory.Currency;
 import main.java.patterns.factory.LifeCycle;
 
 public class TimeCycle {
@@ -19,6 +20,18 @@ public class TimeCycle {
             cycle.schedule(new Midnight(), seconds * 300);
         }else {
             cycle.schedule(new FiveAM(), seconds * 300);
+        }
+    }
+    
+    private void endSim(String message) {
+        this.cycle.cancel();
+        this.isDay = false;
+    }
+    
+    private void simCheck() {
+        if(Currency.currency >= 2000) {
+            endSim("End of simulation, farms are at capacity");
+            return;
         }
     }
     

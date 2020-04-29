@@ -4,7 +4,7 @@ import main.java.patterns.factory.*;
 import main.java.patterns.factory.Animals.AnimalFarm;
 import main.java.patterns.factory.Crops.CropFarm;
 import main.java.patterns.factory.Fish.FishFarm;
-import main.java.patterns.factory.Mediator.TimeCycle;
+import main.java.patterns.Mediator.TimeCycle;
 
 public class FarmerJack {
 
