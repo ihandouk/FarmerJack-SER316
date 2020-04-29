@@ -1,16 +1,12 @@
 package main.java.patterns.mediator;
 
 import java.util.Timer;
-import java.util.TimerTask;
 
 import main.java.patterns.factory.Currency;
-import main.java.patterns.factory.LifeCycle;
 
-public class TimeCycle {
+public class TimeCycle extends TimerTasks {
     
-    Timer timer;
-    private static boolean isDay = false;
-    private static int sunRise = 0;
+    static Timer timer;
     
     boolean checkForUpgrade() {
         return Currency.getCurrency() >= Currency.getreadyUpgrade();
@@ -32,36 +28,11 @@ public class TimeCycle {
             }
         
         } else {
-            System.out.println("Farm has reached capacity");
+            System.out.println("Farm has reached capacity");            
 
         }
     }
     
     
-    static class fiveam extends TimerTask{
-     
-        public void run() {
-            
-            System.out.println("The early bird gets the worm Y'LL!");
-            isDay = true;
-            sunRise++;
-            System.out.println("It is a new day: " + sunRise);
-            new TimeCycle(0);
-            new LifeCycle();
-            
-            
-            
-        }
-    }
     
-    static class Midnight extends TimerTask {
-        
-        public void run() {
-            System.out.println("The sun is settin Y'LL, "
-                    + "tomorrow we will be here again bright and early! \n");
-            isDay = false;
-            new TimeCycle(3);
-
-        }
-    }
 }

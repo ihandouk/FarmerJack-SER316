@@ -41,7 +41,7 @@ public class FarmerJack {
         CropFarm farm2 = build2.create();
         farm2.cropList.add(new Apples());
         cropList.add(farm2);
-        new TimeCycle(0);        
+        new TimeCycle(3);        
         
     }
 
