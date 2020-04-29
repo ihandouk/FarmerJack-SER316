@@ -3,6 +3,10 @@ package main.java.patterns.factory;
 import java.util.ArrayList;
 import java.util.List;
 
+import main.java.patterns.factory.Animals.AnimalFarm;
+import main.java.patterns.factory.Crops.CropFarm;
+import main.java.patterns.factory.Fish.FishFarm;
+
 public class Currency {
     
     public static int currency = 300;

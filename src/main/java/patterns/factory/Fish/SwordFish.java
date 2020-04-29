@@ -1,4 +1,4 @@
-package main.java.patterns.factory;
+package main.java.patterns.factory.Fish;
 
 public class SwordFish extends FishFarm{
     

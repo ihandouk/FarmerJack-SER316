@@ -1,13 +1,15 @@
-package main.java.patterns.factory;
+package main.java.patterns.factory.Animals;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 
+import main.java.patterns.factory.Factory;
+
 public class AnimalFarm extends Factory {
 
 	public AnimalFarm() {
-	    setName("Animal Farm");
+
 	}
 	
 	public static class buildFarm{
@@ -32,12 +34,12 @@ public class AnimalFarm extends Factory {
 	        this.productQuantity = quantity;
 	           return this;
 	    }
-	    public buildFarm farmerCount (int farmerCount) {
-	        this.farmerCount = farmerCount;
+	    public buildFarm farmerCount (int fCount) {
+	        this.farmerCount = fCount;
 	        return this;
 	       }
-	    public buildFarm animalCount (int animalCount) {
-	        this.animalCount = animalCount;
+	    public buildFarm animalCount (int aCount) {
+	        this.animalCount = aCount;
 	        return this;
 	    }   
 	}
@@ -45,7 +47,8 @@ public class AnimalFarm extends Factory {
 	private Factory product;
 	private int productQuantity;
 	private int farmerCount;
-	private int animalMin = 1;
+	private int animalCount;
+	private int animalMin = 0;
 	private int animalMax = 3;
 	
 	public List<Factory> farmList = new ArrayList<Factory>();
@@ -75,10 +78,26 @@ public class AnimalFarm extends Factory {
 	       
 	    this.productQuantity = build.productQuantity;
 	    this.farmerCount = build.farmerCount;
+	    this.animalCount = build.animalCount;
 	    
-	    System.out.println("Product type: " + getProdName());
-        System.out.println("Product Qty: " + getProdQuantity());
-        System.out.println("Number of Farmers: " + getfarmerCount() + "\n");
+	    System.out.println("This product name: " + getProdName());
+        System.out.println("The quanitiy of the product: " + getProdQuantity());
+        System.out.println("Number of Farmers: " + getfarmerCount());
+        System.out.println("Total animal count: " + getAnimalCount() + "\n");
 	}
+	
+	public String getProdName() {
+        return product.getName();
+    }
+    
+    public int getProdQuantity() {
+        return productQuantity;
+    }
+    public int getfarmerCount() {
+        return farmerCount;
+    }
+    public int getAnimalCount() {
+        return animalCount;
+    }
    
 }

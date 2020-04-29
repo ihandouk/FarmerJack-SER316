@@ -1,8 +1,10 @@
 package main.java;
 
 import main.java.patterns.factory.*;
-
-import java.util.Scanner;
+import main.java.patterns.factory.Animals.AnimalFarm;
+import main.java.patterns.factory.Crops.CropFarm;
+import main.java.patterns.factory.Fish.FishFarm;
+import main.java.patterns.factory.Mediator.TimeCycle;
 
 public class FarmerJack {
 
@@ -12,15 +14,16 @@ public class FarmerJack {
      */
     public static void main(String[] args) {
         
+        boolean end = false;
+        
         System.out.println("WELCOME TO FARMER JACK'S FARMS \n");
-        
-        
-
         init();
     }
     
     public static void init() {
         
+        System.out.println("Each farm starts with: "+ Currency.currency+ " Dollars\n");
+        System.out.println("Creating a new farm: ");
         AnimalFarm.buildFarm build = new AnimalFarm.buildFarm();
         FishFarm.buildFarm build1 = new FishFarm.buildFarm();
         CropFarm.buildFarm build2 = new CropFarm.buildFarm();
@@ -33,9 +36,8 @@ public class FarmerJack {
         Currency.cropList.add(farm2);
         new TimeCycle(3);
         
-        System.out.println("Each farm starts with: "+ Currency.currency+ "Dollars\n");
         
-        System.out.println("Creating a new farm: ");
+        
     }
 
 }

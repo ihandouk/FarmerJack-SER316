@@ -1,19 +1,21 @@
-package main.java.patterns.factory;
+package main.java.patterns.factory.Crops;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 
+import main.java.patterns.factory.Factory;
+
 public class CropFarm extends Factory {
     
     public CropFarm() {
-        setName("Crop Farm");
+
     }
     public static class buildFarm{
         private Factory product;
         private int productQuantity = 3;
         private int farmerCount = 6;
-        private int animalCount = 2;
+        private int cropCount = 2;
            
         public buildFarm() {
         }
@@ -31,26 +33,28 @@ public class CropFarm extends Factory {
             this.productQuantity = quantity;
                return this;
         }
-        public buildFarm farmerCount (int farmerCount) {
-            this.farmerCount = farmerCount;
+        public buildFarm farmerCount (int fCount) {
+            this.farmerCount = fCount;
             return this;
            }
-        public buildFarm animalCount (int animalCount) {
-            this.animalCount = animalCount;
+        public buildFarm cropCount (int cCount) {
+            this.cropCount = cCount;
             return this;
         }   
     }
     
     private Factory product;
     private int productQuantity;
-    private int farmerCount = 3;
-    private int cropCount = 2;
-    public List<Factory> farmList = new ArrayList<Factory>();
+    private int farmerCount;
+    private int cropCount;
+    private int cropMin = 0;
+    private int cropMax = 3;
+    public List<Factory> cropList = new ArrayList<Factory>();
     
     public CropFarm (buildFarm build) {
         
         if(build.product == null) {
-            int num = ThreadLocalRandom.current().nextInt(cropCount, farmerCount);
+            int num = ThreadLocalRandom.current().nextInt(cropMin, cropMax);
         
             switch(num) {
             
@@ -67,14 +71,31 @@ public class CropFarm extends Factory {
         }else {
             this.product = build.product;
         }
-        farmList.add(this.product);
+        cropList.add(this.product);
            
+
         this.productQuantity = build.productQuantity;
         this.farmerCount = build.farmerCount;
+        this.cropCount = build.cropCount;
         
-        System.out.println("Product type: " + getProdName());
-        System.out.println("Product Qty: " + getProdQuantity());
-        System.out.println("Number of Farmers: " + getfarmerCount() + "\n");
+        System.out.println("This product name: " + getProdName());
+        System.out.println("The quanitiy of the product: " + getProdQuantity());
+        System.out.println("Number of Farmers: " + getfarmerCount() );
+        System.out.println("Total Crop count: " + getCropCount() + "\n");
+    }
+    
+    public String getProdName() {
+        return product.getName();
+    }
+    
+    public int getProdQuantity() {
+        return productQuantity;
+    }
+    public int getfarmerCount() {
+        return farmerCount;
+    }
+    public int getCropCount() {
+        return cropCount;
     }
 
 }

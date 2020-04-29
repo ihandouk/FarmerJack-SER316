@@ -1,20 +1,22 @@
-package main.java.patterns.factory;
+package main.java.patterns.factory.Fish;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
+
+import main.java.patterns.factory.Factory;
 
 public class FishFarm extends Factory {
     
     public FishFarm() {
-        setName("Fish Farm");
     }
     
     public static class buildFarm{
         private Factory product;
         private int productQuantity = 3;
         private int farmerCount = 6;
-        private int animalCount = 2;
+        private int fishCount = 50;
            
         public buildFarm() {
         }
@@ -37,24 +39,27 @@ public class FishFarm extends Factory {
             farmerCount++;
             return this;
            }
-        public buildFarm animalCount (int animalCount) {
-            this.animalCount = animalCount;
-            animalCount++;
+        public buildFarm fishCount (int fishCount) {
+            this.fishCount = fishCount;
+            fishCount++;
             return this;
         }   
     }
     
     private Factory product;
     private int productQuantity;
-    private int farmerCount = 3;
-    private int fishPools = 2;
+    private int fishCount;
+    private int farmerCount;
+    private int fishMin = 0;
+    private int fishMax = 3;
     
-    public List<Factory> farmList = new ArrayList<Factory>();
+    public List<Factory> fishList = new ArrayList<Factory>();
+    private static Random rand = new Random();
     
     public FishFarm (buildFarm build) {
         
         if(build.product == null) {        
-            int num = ThreadLocalRandom.current().nextInt(farmerCount, fishPools);
+            int num = ThreadLocalRandom.current().nextInt(fishMin, fishMax);
         
             switch(num) {
             
@@ -71,13 +76,29 @@ public class FishFarm extends Factory {
         }else {
             this.product = build.product;
         }
-        farmList.add(this.product);
+        fishList.add(this.product);
         
         this.productQuantity = build.productQuantity;
         this.farmerCount = build.farmerCount;
+        this.fishCount = build.fishCount;
         
-        System.out.println("Product type: " + getProdName());
-        System.out.println("Product Qty: " + getProdQuantity());
-        System.out.println("Number of Farmers: " + getfarmerCount() + "\n");
+        System.out.println("This product name: " + getProdName());
+        System.out.println("The quanitiy of the product: " + getProdQuantity());
+        System.out.println("Number of Farmers: " + getfarmerCount());
+        System.out.println("Total fish produced: " + getFishCount() + "\n");
+    }
+    
+    public String getProdName() {
+        return product.getName();
+    }
+    
+    public int getProdQuantity() {
+        return productQuantity;
+    }
+    public int getfarmerCount() {
+        return farmerCount;
+    }
+    public int getFishCount() {
+        return fishCount;
     }
 }

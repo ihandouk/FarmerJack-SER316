@@ -3,10 +3,7 @@ package main.java.patterns.factory;
 public abstract class Factory {
 
     protected String name;
-    protected String prodName;
     protected String salesName;
-    protected int prodQuantity;
-    protected int farmerCount;
     protected double salesPrice;
     protected double price;
     
@@ -17,24 +14,14 @@ public abstract class Factory {
     public String getName() {
         return name;
     }
-    
-    public void setName(String newName) {
-        name = newName;
+    public String getPred() {
+        pred = "Predator";
+        return pred;
     }
     
-    public String getSales() {
+    
+    public String getSalesName() {
         return salesName;
-    }
-    
-    public String getProdName() {
-        return prodName;
-    }
-    
-    public int getProdQuantity() {
-        return prodQuantity;
-    }
-    public int getfarmerCount() {
-        return farmerCount;
     }
     
     public double getSalesPrice() {
@@ -45,11 +32,11 @@ public abstract class Factory {
         return price;
     }
     
-    boolean isProduce() {
+    public boolean isProduce() {
         return isProduce;
     }
     
-    int produceCount() {
+    public int getProduceCount() {
         return produceCount;
     }
     
@@ -60,27 +47,23 @@ public abstract class Factory {
     
     int Cycle = 0;
     private int animalStartCycle = 3;
-    private int animalMiddleCycle = 7;
     private int animalEndCycle = 14;
+    private String pred;
     
     public void Cycle() {
         
         this.Cycle++;
+        
+        if(this.Cycle == Cycle + 2) {
+            
+            System.out.println("The farms produce vaults were attached by: "+this.pred);
+        }
         
         if(this.Cycle < animalStartCycle) {
             System.out.println(this.name + " is not old enough to produce");
             return;
         }
         
-        if(this.Cycle > animalStartCycle) {
-            System.out.println(this.name + " is producing.");
-            return;
-        }
-        
-        if(this.Cycle == animalMiddleCycle) {
-            System.out.println(this.name + " is 7 years old, and it is at a perfect age to produce.");
-            return;
-        }
         
         if(this.Cycle >= animalEndCycle) {
             System.out.println(this.name + " has died of old age.");

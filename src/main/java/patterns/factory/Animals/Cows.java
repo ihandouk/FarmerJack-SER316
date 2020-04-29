@@ -1,4 +1,4 @@
-package main.java.patterns.factory;
+package main.java.patterns.factory.Animals;
 
 public class Cows extends AnimalFarm {
     
