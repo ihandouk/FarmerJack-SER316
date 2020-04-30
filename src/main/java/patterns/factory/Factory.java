@@ -17,6 +17,7 @@ public abstract class Factory {
         return name;
         
     }
+    
     public String getName1() {
         return nameOne;
     }

@@ -12,7 +12,6 @@ import main.java.patterns.factory.crops.CropFarm;
 import main.java.patterns.factory.fish.FishFarm;
 import main.java.patterns.factory.fish.Lobster;
 import main.java.patterns.factory.fish.SwordFish;
-import main.java.patterns.factory.fish.Salmon;
 import main.java.patterns.mediator.TimeCycle;
 
 public class FarmerJack {
@@ -25,8 +24,6 @@ public class FarmerJack {
      * return
      */
     public static void main(String[] args) {
-        
-        System.out.println("WELCOME TO FARMER JACK'S FARMS \n");
         
         System.out.println("Each farm starts with: " + Currency.getCurrency() + " Dollars\n");
         System.out.println("Creating a new farm: ");
@@ -48,8 +45,7 @@ public class FarmerJack {
         CropFarm farm2 = build2.create();
         farm2.cropList.add(new Apples());
         cropList.add(farm2);
-        new TimeCycle(3);        
-        
+        new TimeCycle(3); 
     }
 
 }
