@@ -3,19 +3,22 @@ package main.java.patterns.factory;
 public abstract class Factory {
 
     protected String name;
+    protected String nameOne;
     protected String salesName;
     protected double salesPrice;
     protected double price;
     
     public boolean isProduce = false;
     public int produceCount = 0;
-    public int readyCycle = 3;
     
     
     
     public String getName() {
         return name;
         
+    }
+    public String getName1() {
+        return nameOne;
     }
     
     public String getPred() {
@@ -75,9 +78,8 @@ public abstract class Factory {
         }
         // Checking if it is able to support the production process.
         this.produceCount++;
-        System.out.println(this.name + "cycle.");
         
-        if (this.produceCount > readyCycle) {
+        if (this.produceCount > animalStartCycle) {
             this.isProduce = true;
             System.out.println(this.name + " is ready to support the farm production process.");
         }
@@ -85,9 +87,9 @@ public abstract class Factory {
         this.produceCount++;
         System.out.println(this.name + " is growing, and it might be ready for harvest soon.");
         
-        if (this.produceCount > readyCycle) {
+        if (this.produceCount > animalStartCycle) {
             this.isProduce = true;
-            System.out.println(this.name + "is ready for harvesting, let's make some MONEY!!");
+            System.out.println(this.name + " is ready for harvesting, let's make some MONEY!!");
         }
     }
     

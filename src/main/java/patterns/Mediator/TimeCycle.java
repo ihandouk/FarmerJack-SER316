@@ -6,7 +6,7 @@ import main.java.patterns.factory.Currency;
 
 public class TimeCycle extends TimerTasks {
     
-    static Timer timer;
+    Timer timer;  
     
     boolean checkForUpgrade() {
         return Currency.getCurrency() >= Currency.getreadyUpgrade();
@@ -28,11 +28,9 @@ public class TimeCycle extends TimerTasks {
             }
         
         } else {
-            System.out.println("Farm has reached capacity");            
-
+            System.out.println("Farm has reached capacity");  
+            System.exit(0);
+            
         }
-    }
-    
-    
-    
+    }    
 }

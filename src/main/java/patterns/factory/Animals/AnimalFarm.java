@@ -14,6 +14,7 @@ public class AnimalFarm extends Factory {
     
     public static class Buildfarm {
         
+        private String nameOne = "Animal Farm";
         private Factory product;
         private int productQuantity = 2;
         private int farmerCount = 6;
@@ -24,6 +25,11 @@ public class AnimalFarm extends Factory {
         
         public AnimalFarm create() {
             return new AnimalFarm(this);
+        }
+        
+        public Buildfarm nameOne(String nameOne) {
+            this.nameOne = nameOne;
+            return this;
         }
 
         public Buildfarm product(Factory product) {
@@ -47,6 +53,7 @@ public class AnimalFarm extends Factory {
         }   
     }
 
+    private String nameOne;
     private Factory product;
     private int productQuantity;
     private int farmerCount;
@@ -55,15 +62,16 @@ public class AnimalFarm extends Factory {
     private int animalMax = 3;
 
     public List<Factory> animalList = new ArrayList<Factory>();
+    
 
     /**
      * It helps init a random switch for Animals, Crops, and Fish.
      * @param build Animal Farm.
      */
     public AnimalFarm(Buildfarm build) {
+        this.nameOne = build.nameOne;
         
         if (build.product == null) {
-
             int num = ThreadLocalRandom.current().nextInt(animalMin, animalMax);
 
             switch (num) {
@@ -90,12 +98,17 @@ public class AnimalFarm extends Factory {
         this.farmerCount = build.farmerCount;
         this.animalCount = build.animalCount;
 
-        System.out.println("This product name: " + getProdName());
+        System.out.println("Farm name: " + nameOne);
+        System.out.println("Animal type: " + getProdName());
         System.out.println("The quanitiy of the product: " + getProdQuantity());
         System.out.println("Number of Farmers: " + getfarmerCount());
         System.out.println("Total animal count: " + getAnimalCount() + "\n");
     }
 
+    public String getName1() {
+        return nameOne;
+    }
+    
     public String getProdName() {
         return product.getName();
     }

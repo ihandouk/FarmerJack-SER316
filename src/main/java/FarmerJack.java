@@ -4,11 +4,15 @@ import java.util.List;
 
 import main.java.patterns.factory.Currency;
 import main.java.patterns.factory.animals.AnimalFarm;
-import main.java.patterns.factory.animals.*;
-import main.java.patterns.factory.crops.*;
+import main.java.patterns.factory.animals.Horses;
+import main.java.patterns.factory.animals.Sheep;
+import main.java.patterns.factory.crops.Apples;
+import main.java.patterns.factory.crops.Coffee;
 import main.java.patterns.factory.crops.CropFarm;
 import main.java.patterns.factory.fish.FishFarm;
-import main.java.patterns.factory.fish.*;
+import main.java.patterns.factory.fish.Lobster;
+import main.java.patterns.factory.fish.SwordFish;
+import main.java.patterns.factory.fish.Salmon;
 import main.java.patterns.mediator.TimeCycle;
 
 public class FarmerJack {
@@ -27,8 +31,11 @@ public class FarmerJack {
         System.out.println("Each farm starts with: " + Currency.getCurrency() + " Dollars\n");
         System.out.println("Creating a new farm: ");
         AnimalFarm.Buildfarm build = new AnimalFarm.Buildfarm();
+        build.nameOne("Animal Farm").product(new Sheep());
         FishFarm.Buildfarm build1 = new FishFarm.Buildfarm();
+        build1.nameOne("Fish Farm").product(new SwordFish());
         CropFarm.Buildfarm build2 = new CropFarm.Buildfarm();
+        build2.nameOne("Crop Farm").product(new Coffee());
         List<AnimalFarm> animalList = Currency.getAnimalFarmList();
         List<FishFarm> fishList = Currency.getFishFarmList();
         List<CropFarm> cropList = Currency.getCropFarmList();

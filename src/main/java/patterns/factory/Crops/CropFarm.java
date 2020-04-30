@@ -13,6 +13,8 @@ public class CropFarm extends Factory {
     }
     
     public static class Buildfarm {
+        
+        private String nameOne = "Crop Farm";
         private Factory product;
         private int productQuantity = 2;
         private int farmerCount = 6;
@@ -24,9 +26,14 @@ public class CropFarm extends Factory {
         public CropFarm create() {
             return new CropFarm(this);
         }
+        
+        public Buildfarm nameOne(String nameOne) {
+            this.nameOne = nameOne;
+            return this;
+        }
            
-        public Buildfarm product(Factory prod) {
-            this.product = prod;
+        public Buildfarm product(Factory product) {
+            this.product = product;
             return this;
         }
            
@@ -46,6 +53,7 @@ public class CropFarm extends Factory {
         }   
     }
     
+    private String nameOne;
     private Factory product;
     private int productQuantity;
     private int farmerCount;
@@ -59,6 +67,8 @@ public class CropFarm extends Factory {
      * @return
      */
     public CropFarm(Buildfarm build) {
+        
+        this.nameOne = build.nameOne;
         
         if (build.product == null) {
             int num = ThreadLocalRandom.current().nextInt(cropMin, cropMax);
@@ -88,10 +98,15 @@ public class CropFarm extends Factory {
         this.farmerCount = build.farmerCount;
         this.cropCount = build.cropCount;
         
-        System.out.println("This product name: " + getProdName());
+        System.out.println("Farm name: " + nameOne);
+        System.out.println("Crop type: " + getProdName());
         System.out.println("The quanitiy of the product: " + getProdQuantity());
         System.out.println("Number of Farmers: " + getfarmerCount());
         System.out.println("Total Crop count: " + getCropCount() + "\n");
+    }
+    
+    public String getName1() {
+        return nameOne;
     }
     
     public String getProdName() {

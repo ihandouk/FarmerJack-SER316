@@ -1,6 +1,5 @@
 package main.java.patterns.mediator;
 
-import java.util.Timer;
 import java.util.TimerTask;
 
 import main.java.patterns.factory.LifeCycle;
@@ -9,19 +8,19 @@ public class TimerTasks {
     
     private static int sunRise = 0;
     static boolean isDay = true;
-    static Timer timer;
     
     static class fiveam extends TimerTask {
         
+        
         public void run() {
-            
-            timer = new Timer();
+
             System.out.println("The early bird gets the worm Y'LL!");
             isDay = true;
             sunRise++;
             System.out.println("It is a new day: " + sunRise);
             new TimeCycle(3);
             new LifeCycle();
+            
    
         }
     }

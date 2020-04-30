@@ -3,7 +3,7 @@ package main.java.patterns.factory.crops;
 public class Coffee extends CropFarm {
     
     /**
-     * Crops products and sale prices.
+     * Coffee products and sale prices.
      * @return
      */
     public Coffee() {

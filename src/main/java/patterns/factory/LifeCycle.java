@@ -10,7 +10,7 @@ public class LifeCycle {
 
     /**
      * Iterator Design Pattern.
-     * @param
+     * It calculates the total currency collected from the farms' production.
      * return
      */
     public LifeCycle() {
@@ -32,8 +32,6 @@ public class LifeCycle {
 
                     System.out.println("Item sold: " + product.salesName 
                             + " for the amount of $" + product.price);
-                    System.out.println("The farm's vault has a total of $" 
-                            + Currency.getCurrency() + ".\n");
                     
                 } else {
                     product.cycle();
@@ -56,8 +54,6 @@ public class LifeCycle {
 
                     System.out.println("Item sold: " + product.salesName 
                             + " for the amount of $" + product.price);
-                    System.out.println("The farm's vault has a total of $" 
-                            + Currency.getCurrency() + ".\n");
                     
                 } else {
                     product.cycle();
@@ -80,14 +76,14 @@ public class LifeCycle {
 
                     System.out.println("Item sold: " + product.salesName 
                             + " for the amount of $" + product.price);
-                    System.out.println("The farm's vault has a total of $" 
-                            + Currency.getCurrency() + ".\n");
                     
                 } else {
                     product.cycle();
                 }
             }
         }
+        System.out.println("The farm's vault has a total of $" 
+                + Currency.getCurrency() + ".\n");
         
     }
 }

@@ -2,7 +2,6 @@ package main.java.patterns.factory.fish;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
 
 import main.java.patterns.factory.Factory;
@@ -13,6 +12,8 @@ public class FishFarm extends Factory {
     }
     
     public static class Buildfarm {
+        
+        private String nameOne = "Fish Farm";
         private Factory product;
         private int productQuantity = 3;
         private int farmerCount = 6;
@@ -23,6 +24,11 @@ public class FishFarm extends Factory {
         
         public FishFarm create() {
             return new FishFarm(this);
+        }
+        
+        public Buildfarm nameOne(String nameOne) {
+            this.nameOne = nameOne;
+            return this;
         }
            
         public Buildfarm product(Factory product) {
@@ -54,6 +60,7 @@ public class FishFarm extends Factory {
         }   
     }
     
+    private String nameOne;
     private Factory product;
     private int productQuantity;
     private int fishCount;
@@ -62,13 +69,14 @@ public class FishFarm extends Factory {
     private int fishMax = 3;
     
     public List<Factory> fishList = new ArrayList<Factory>();
-    private static Random rand = new Random();
     
     /**
      * Calling fish farm products at random.
      * @return
      */
     public FishFarm(Buildfarm build) {
+        
+        this.nameOne = build.nameOne;
         
         if (build.product == null) {        
             int num = ThreadLocalRandom.current().nextInt(fishMin, fishMax);
@@ -97,10 +105,15 @@ public class FishFarm extends Factory {
         this.farmerCount = build.farmerCount;
         this.fishCount = build.fishCount;
         
-        System.out.println("This product name: " + getProdName());
+        System.out.println("Farm name: " + nameOne);
+        System.out.println("Fish type: " + getProdName());
         System.out.println("The quanitiy of the product: " + getProdQuantity());
         System.out.println("Number of Farmers: " + getfarmerCount());
         System.out.println("Total fish produced: " + getFishCount() + "\n");
+    }
+    
+    public String getName1() {
+        return nameOne;
     }
     
     public String getProdName() {

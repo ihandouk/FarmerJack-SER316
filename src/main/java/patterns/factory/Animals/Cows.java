@@ -14,6 +14,7 @@ public class Cows extends AnimalFarm {
         salesPrice = 3.00;
         
         
+        
     }
 
 }
