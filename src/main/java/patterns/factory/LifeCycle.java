@@ -34,7 +34,7 @@ public class LifeCycle {
                             + " for the amount of $" + product.price);
                     
                 } else {
-                    product.cycle();
+                    product.getCycle();
                 }
             }
         }
@@ -56,7 +56,7 @@ public class LifeCycle {
                             + " for the amount of $" + product.price);
                     
                 } else {
-                    product.cycle();
+                    product.getCycle();
                 }
             }
         }
@@ -78,7 +78,7 @@ public class LifeCycle {
                             + " for the amount of $" + product.price);
                     
                 } else {
-                    product.cycle();
+                    product.getCycle();
                 }
             }
         }

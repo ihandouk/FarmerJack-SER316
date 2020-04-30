@@ -2,27 +2,30 @@ package test.java;
 
 import static org.junit.Assert.assertEquals;
 
+import main.java.patterns.factory.Currency;
+import main.java.patterns.factory.animals.AnimalFarm;
+import main.java.patterns.factory.animals.Horses;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import main.java.patterns.factory.Currency;
-import main.java.patterns.factory.animals.AnimalFarm;
-import main.java.patterns.factory.animals.Horses;
-
 
 /**
- *
- * @author ihand
+ * Test class.
+ * @author ihand.
  */
 public class CurrencyTest {
 
     AnimalFarm.Buildfarm builder = new AnimalFarm.Buildfarm();
-    AnimalFarm Horses = new Horses();
+    AnimalFarm horses = new Horses();
     
+    /**
+     * setting up before test.
+     */
     @Before
     public void setUp() {        
-        builder.nameOne("Test").product(Horses).productQuantity(3).farmerCount(6); //specify components
+        builder.nameOne("Test").product(horses)
+        .productQuantity(3).farmerCount(6); //specify components
     }
 
     @After
@@ -31,7 +34,7 @@ public class CurrencyTest {
 
     @Test
     public void currencyCurrentCurrencyTest() {
-        assertEquals(100, Currency.getCurrency());
+        assertEquals(600, Currency.getCurrency());
     }
     
     @Test
@@ -45,9 +48,9 @@ public class CurrencyTest {
     @Test
     public void currencyAddCurrencyTest() {
         Currency.addCurrency(100);
-        assertEquals(200, Currency.getCurrency());
+        assertEquals(300, Currency.getCurrency());
         Currency.addCurrency(-100);
-        assertEquals(100, Currency.getCurrency());
+        assertEquals(200, Currency.getCurrency());
     }
     
     @Test
@@ -62,5 +65,6 @@ public class CurrencyTest {
         Currency.setCurrency(600);
         assertEquals(1200, Currency.getreadyUpgrade());        
     } 
+    
 
 }

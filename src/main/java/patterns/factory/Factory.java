@@ -1,13 +1,15 @@
 package main.java.patterns.factory;
 
+import main.java.patterns.factory.animals.AnimalFarm;
+
 public abstract class Factory {
 
     protected String name;
     protected String nameOne;
     protected String salesName;
     protected double salesPrice;
+    private int readyCycle = 3;
     protected double price;
-    
     public boolean isProduce = false;
     public int produceCount = 0;
     
@@ -43,6 +45,13 @@ public abstract class Factory {
         return isProduce;
     }
     
+    public int getAdultCycle() {
+        return animalStartCycle;
+    }
+    
+    public int getCycle() {
+        return animalEndCycle;
+    }  
     public int getProduceCount() {
         return produceCount;
     }
@@ -53,7 +62,7 @@ public abstract class Factory {
     }
     
     
-    int cycle = 0;
+    public static int cycle = 0;
     private int animalStartCycle = 3;
     private int animalEndCycle = 14;
     private String pred;
@@ -61,8 +70,9 @@ public abstract class Factory {
     /**
      * verifying animals, fish, and crops eligibility to produce.
      * return
+     * @param farm1 
      */
-    public void cycle() {
+    public void cycle(AnimalFarm farm1) {
         
         // incrementing cycles
         this.cycle++;
@@ -88,7 +98,7 @@ public abstract class Factory {
         this.produceCount++;
         System.out.println(this.name + " is growing, and it might be ready for harvest soon.");
         
-        if (this.produceCount > animalStartCycle) {
+        if (this.produceCount > readyCycle) {
             this.isProduce = true;
             System.out.println(this.name + " is ready for harvesting, let's make some MONEY!!");
         }
