@@ -54,3 +54,6 @@ checkstyle {
     html.enabled = true
   }
 }
+spotbugs{
+  ignoreFailures = true
+}
