@@ -4,6 +4,8 @@ public abstract class Factory {
 
     protected String name;
     protected String nameOne;
+    private int readyCycle = 2;
+    public int Cycle = 0;
     protected String salesName;
     protected double salesPrice;
     protected double price;
@@ -11,20 +13,27 @@ public abstract class Factory {
     public boolean isProduce = false;
     public int produceCount = 0;
     
+    public int getReadyCycle() {
+        return readyCycle;
+    }
     
+    public int getCycle() {
+        return cycle;
+    }
+    
+    public int getOldAge() {
+        return animalEndCycle;
+    }
     
     public String getName() {
         return name;
         
     }
+    
     public String getName1() {
         return nameOne;
     }
     
-    public String getPred() {
-        pred = "Predator";
-        return pred;
-    }
     
     public String getSalesName() {
         return salesName;
@@ -55,7 +64,6 @@ public abstract class Factory {
     int cycle = 0;
     private int animalStartCycle = 3;
     private int animalEndCycle = 14;
-    private String pred;
     
     /**
      * verifying animals, fish, and crops eligibility to produce.

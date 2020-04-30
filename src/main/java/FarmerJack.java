@@ -12,7 +12,6 @@ import main.java.patterns.factory.crops.CropFarm;
 import main.java.patterns.factory.fish.FishFarm;
 import main.java.patterns.factory.fish.Lobster;
 import main.java.patterns.factory.fish.SwordFish;
-import main.java.patterns.factory.fish.Salmon;
 import main.java.patterns.mediator.TimeCycle;
 
 public class FarmerJack {
@@ -38,7 +37,9 @@ public class FarmerJack {
         build2.nameOne("Crop Farm").product(new Coffee());
         List<AnimalFarm> animalList = Currency.getAnimalFarmList();
         List<FishFarm> fishList = Currency.getFishFarmList();
+        
         List<CropFarm> cropList = Currency.getCropFarmList();
+        
         AnimalFarm farm = build.create();
         farm.animalList.add(new Horses());
         animalList.add(farm);
