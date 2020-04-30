@@ -1,19 +1,29 @@
 package main.java.patterns.factory;
 
-import main.java.patterns.factory.animals.AnimalFarm;
-
 public abstract class Factory {
 
     protected String name;
     protected String nameOne;
+    private int readyCycle = 2;
+    public int Cycle = 0;
     protected String salesName;
     protected double salesPrice;
-    private int readyCycle = 3;
     protected double price;
+    
     public boolean isProduce = false;
     public int produceCount = 0;
     
+    public int getReadyCycle() {
+        return readyCycle;
+    }
     
+    public int getCycle() {
+        return cycle;
+    }
+    
+    public int getOldAge() {
+        return animalEndCycle;
+    }
     
     public String getName() {
         return name;
@@ -24,10 +34,6 @@ public abstract class Factory {
         return nameOne;
     }
     
-    public String getPred() {
-        pred = "Predator";
-        return pred;
-    }
     
     public String getSalesName() {
         return salesName;
@@ -45,13 +51,6 @@ public abstract class Factory {
         return isProduce;
     }
     
-    public int getAdultCycle() {
-        return animalStartCycle;
-    }
-    
-    public int getCycle() {
-        return animalEndCycle;
-    }  
     public int getProduceCount() {
         return produceCount;
     }
@@ -62,17 +61,15 @@ public abstract class Factory {
     }
     
     
-    public static int cycle = 0;
+    int cycle = 0;
     private int animalStartCycle = 3;
     private int animalEndCycle = 14;
-    private String pred;
     
     /**
      * verifying animals, fish, and crops eligibility to produce.
      * return
-     * @param farm1 
      */
-    public void cycle(AnimalFarm farm1) {
+    public void cycle() {
         
         // incrementing cycles
         this.cycle++;
@@ -98,7 +95,7 @@ public abstract class Factory {
         this.produceCount++;
         System.out.println(this.name + " is growing, and it might be ready for harvest soon.");
         
-        if (this.produceCount > readyCycle) {
+        if (this.produceCount > animalStartCycle) {
             this.isProduce = true;
             System.out.println(this.name + " is ready for harvesting, let's make some MONEY!!");
         }

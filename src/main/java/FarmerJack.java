@@ -25,6 +25,8 @@ public class FarmerJack {
      */
     public static void main(String[] args) {
         
+        System.out.println("WELCOME TO FARMER JACK'S FARMS \n");
+        
         System.out.println("Each farm starts with: " + Currency.getCurrency() + " Dollars\n");
         System.out.println("Creating a new farm: ");
         AnimalFarm.Buildfarm build = new AnimalFarm.Buildfarm();
@@ -35,7 +37,9 @@ public class FarmerJack {
         build2.nameOne("Crop Farm").product(new Coffee());
         List<AnimalFarm> animalList = Currency.getAnimalFarmList();
         List<FishFarm> fishList = Currency.getFishFarmList();
+        
         List<CropFarm> cropList = Currency.getCropFarmList();
+        
         AnimalFarm farm = build.create();
         farm.animalList.add(new Horses());
         animalList.add(farm);
@@ -45,7 +49,8 @@ public class FarmerJack {
         CropFarm farm2 = build2.create();
         farm2.cropList.add(new Apples());
         cropList.add(farm2);
-        new TimeCycle(3); 
+        new TimeCycle(3);        
+        
     }
 
 }

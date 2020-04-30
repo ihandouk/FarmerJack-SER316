@@ -19,22 +19,6 @@ public class AnimalFarm extends Factory {
         private int productQuantity = 2;
         private int farmerCount = 6;
         private int animalCount = 2;
-        public int cycle = 0;
-        private int readyCycle = 2;
-        private int animalStartCycle = 3;
-
-        
-        public int getCycle() {
-            return cycle;
-        }
-        
-        public int getReadyCycle() {
-            return readyCycle;
-        }
-        
-        public int getAdultCycle() {
-            return animalStartCycle;
-        }
                 
         public Buildfarm() {
         }

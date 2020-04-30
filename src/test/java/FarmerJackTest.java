@@ -2,11 +2,12 @@ package test.java;
 
 import static org.junit.Assert.assertEquals;
 
+import main.java.patterns.factory.Currency;
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import main.java.patterns.factory.Currency;
 
 public class FarmerJackTest {
     
@@ -20,7 +21,6 @@ public class FarmerJackTest {
 
     @Test
     public void initTest() {
-
         assertEquals(200, Currency.getCurrency());
         assertEquals(1200, Currency.getreadyUpgrade());
     }
