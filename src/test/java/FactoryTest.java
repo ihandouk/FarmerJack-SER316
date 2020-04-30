@@ -20,10 +20,7 @@ import org.junit.Test;
 
 public class FactoryTest {
     
-    Factory coffee = new Coffee();
-    Factory swordfish = new SwordFish();
     Factory apples = new Apples();
-    Factory orange = new Oranges();
     AnimalFarm horse = new Horses();
     AnimalFarm cow = new Cows();
     AnimalFarm sheep = new Sheep();
@@ -77,7 +74,6 @@ public class FactoryTest {
     
     @Test
     public void animalAge() {
-        AnimalFarm farm1 = builder1.create(); //build instance
         horse.cycle(); // age once
         assertEquals(1, horse.getCycle());
         
@@ -105,7 +101,6 @@ public class FactoryTest {
     
     @Test
     public void productAge() {
-        AnimalFarm farm2 = builder2.create(); //build instance
         horse.cycle(); // age once
         assertEquals(0, horse.getProduceCount());
         for (int i = 0; i < 2; i++) {  //age two more times

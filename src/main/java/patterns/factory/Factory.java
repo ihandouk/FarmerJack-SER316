@@ -3,9 +3,8 @@ package main.java.patterns.factory;
 public abstract class Factory {
 
     protected String name;
-    protected String nameOne;
+    static String nameOne;
     private int readyCycle = 2;
-    public int Cycle = 0;
     protected String salesName;
     protected double salesPrice;
     protected double price;
