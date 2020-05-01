@@ -24,7 +24,7 @@ public class TimeCycle extends TimerTasks {
             if (isDay) {
                 timer.schedule(new Midnight(), seconds * 1000);
             } else {
-                timer.schedule(new fiveam(), seconds * 1000);
+                timer.schedule(new Fiveam(), seconds * 1000);
             }
         
         } else {

@@ -9,7 +9,7 @@ public class TimerTasks {
     private static int sunRise = 0;
     static boolean isDay = true;
     
-    static class fiveam extends TimerTask {
+    static class Fiveam extends TimerTask {
         
         
         public void run() {
